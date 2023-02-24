@@ -1,5 +1,3 @@
-function PageRoot() {
-  return <h1>Hello, Next.js!</h1>;
-}
+import PageRoot from '../components/page-root'
 
 export default PageRoot
