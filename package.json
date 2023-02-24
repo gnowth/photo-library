@@ -1,0 +1,15 @@
+{
+  "author": "Thierry Wong",
+  "description": "app to display photo",
+  "license": "MIT",
+  "name": "photo-library",
+  "repository": "https://github.com/gnowth/photo-library.git",
+  "version": "1.0.0",
+  "engines": {
+    "node": "19.7.0",
+    "npm": "9.5.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
