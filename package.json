@@ -45,10 +45,12 @@
   },
   "scripts": {
     "build": "next build",
+    "check:lint": "next lint --fix",
+    "check:test-watch": "jest --watch",
+    "check:test": "jest",
+    "check:typecheck": "tsc",
+    "check": "npm run check:lint && npm run check:typecheck && npm run check:test",
     "dev": "next dev",
-    "lint": "next lint",
-    "start": "next start",
-    "test-watch": "jest --watch",
-    "test": "jest --watch"
+    "start": "next start"
   }
 }
