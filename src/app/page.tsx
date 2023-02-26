@@ -1,3 +1,3 @@
-import PageRoot from '../components/page-root'
+import PageLanding from '../components/page-landing'
 
-export default PageRoot
+export default PageLanding

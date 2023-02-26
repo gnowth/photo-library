@@ -1,0 +1,12 @@
+{
+  "editor.formatOnPaste": true,
+  "editor.rulers": [110],
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.expand": false,
+  "explorer.fileNesting.patterns": {
+    "*.tsx": "${capture}.*",
+    "*.ts": "${capture}.*",
+    "package.json": ".*, *.json, *.config.js, *.setup.js, next-*, Dockerfile"
+  },
+  "files.autoSave": "onFocusChange",
+}

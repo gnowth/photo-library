@@ -1,9 +1,9 @@
 import { render, screen } from '@testing-library/react'
-import PageRoot from './page-root'
+import PageLanding from './page-landing'
 
-describe('PageRoot', () => {
+describe('PageLanding', () => {
   function renderComponent() {
-    return render(<PageRoot />)
+    return render(<PageLanding />)
   }
 
   it('contains an h1', () => {
