@@ -9,7 +9,7 @@ describe('PageLanding', () => {
   it('contains an h1', () => {
     renderComponent()
 
-    const content = screen.getByRole('heading', { level: 1 })
-    expect(content).toBeInTheDocument()
+    const heading = screen.getByRole('heading', { level: 1 })
+    expect(heading).toBeInTheDocument()
   })
 })
