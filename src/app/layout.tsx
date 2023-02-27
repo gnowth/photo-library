@@ -1,7 +1,18 @@
-function LayoutRoot({ children }) {
+import type { FunctionComponent, ReactNode } from 'react'
+import { Provider } from 'react-redux'
+
+import { store } from '../store'
+
+type Props = {
+  children: ReactNode
+}
+
+const LayoutRoot: FunctionComponent<Props> = (props) => {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Provider store={store}>{props.children}</Provider>
+      </body>
     </html>
   )
 }
