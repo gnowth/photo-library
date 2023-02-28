@@ -1,11 +1,20 @@
+import type { ConfigureStoreOptions } from '@reduxjs/toolkit'
 import { configureStore } from '@reduxjs/toolkit'
 
-export const store = configureStore({
-  reducer: {},
-})
+import { photoApi } from './services/service-photo'
 
-// Infer the `RootState` and `AppDispatch` types from the store itself
+export const createStore = (options?: Partial<ConfigureStoreOptions>) => {
+  return configureStore({
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(photoApi.middleware),
+    reducer: {
+      [photoApi.reducerPath]: photoApi.reducer,
+    },
+    ...options,
+  })
+}
+
+export const store = createStore()
+
 export type RootState = ReturnType<typeof store.getState>
-
-// Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
-export type AppDispatch = typeof store.dispatch
+export type AppStore = typeof store
+export type AppDispatch = AppStore['dispatch']

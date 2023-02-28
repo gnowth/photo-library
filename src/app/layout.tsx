@@ -1,3 +1,5 @@
+'use client'
+
 import type { FunctionComponent, ReactNode } from 'react'
 import { Provider } from 'react-redux'
 
