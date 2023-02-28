@@ -28,7 +28,7 @@ type PhotoData = {
   url?: string
 }
 
-type Photo = {
+export type Photo = {
   createdAt: string | null
   description: string
   dimensions: Size
@@ -89,6 +89,4 @@ export const photoApi = createApi({
   }),
 })
 
-// Export hooks for usage in functional components, which are
-// auto-generated based on the defined endpoints
 export const { useGetPhotosQuery } = photoApi
