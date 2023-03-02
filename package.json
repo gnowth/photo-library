@@ -6,8 +6,8 @@
   "repository": "https://github.com/gnowth/photo-library.git",
   "version": "1.0.0",
   "engines": {
-    "node": "19.7.0",
-    "npm": "9.5.0"
+    "node": "18.7.0",
+    "npm": "8.15.0"
   },
   "eslintConfig": {
     "extends": [

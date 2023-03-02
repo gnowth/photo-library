@@ -3,8 +3,8 @@
 Note: this has only been tested with the latest chrome browser.
 
 ## Version requirement
-- node: 19.7.0
-- npm: 9.5.0
+- node: 18.7.0
+- npm: 8.15.0
 
 ## Setup
 - to run project in dev mode: `npm run dev`
