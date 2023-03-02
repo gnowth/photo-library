@@ -31,11 +31,11 @@ type PhotoData = {
 export type Photo = {
   createdAt: string | null
   description: string
-  dimensions: Size
+  dimensions: string
   favorited: boolean
   filename: string
   id: string
-  resolution: Size
+  resolution: string
   sizeText: string
   updatedAt: string | null
   uploadedBy: string
@@ -45,7 +45,7 @@ export type Photo = {
 export type PhotoResponse = PhotoData[]
 
 function getSizeFromBytes(size?: number): string {
-  return ''
+  return `${Math.round((size * 10) / (1024 * 1024)) / 10} MB`
 }
 
 export const photoApi = createApi({
@@ -68,25 +68,53 @@ export const photoApi = createApi({
         response.map((photo) => ({
           createdAt: photo.createdAt ?? null,
           description: photo.description ?? 'N/A',
+          dimensions: `${photo.dimensions?.height ?? 0} x ${photo.dimensions?.width ?? 0}`,
           favorited: photo.favorited ?? false,
           filename: photo.filename ?? 'N/A',
           id: photo.id ?? '',
+          resolution: `${photo.resolution?.height ?? 0} x ${photo.resolution?.width ?? 0}`,
           sharedWith: photo.sharedWith ?? [],
           sizeText: getSizeFromBytes(photo.sizeInBytes),
           updatedAt: photo.updatedAt ?? null,
           uploadedBy: photo.uploadedBy ?? 'Unknown',
           url: photo.url ?? null,
-          dimensions: photo.dimensions ?? {
-            height: 0,
-            width: 0,
-          },
-          resolution: photo.resolution ?? {
-            height: 0,
-            width: 0,
-          },
         })),
+    }),
+
+    // Note: using optimistic update to simulate local deletion of photo
+    deletePhoto: builder.mutation<void, Photo>({
+      query: ({ id, ...patch }) => ({
+        url: `photo/${id}`,
+        method: 'PATCH',
+        body: patch,
+      }),
+
+      async onQueryStarted(photo, { dispatch }) {
+        dispatch(
+          photoApi.util.updateQueryData('getPhotos', undefined, (draft) =>
+            draft.filter((item) => item.id !== photo.id),
+          ),
+        )
+      },
+    }),
+
+    // Note: using optimistic update to simulate local favorite of photo
+    favoritePhoto: builder.mutation<void, Photo>({
+      query: ({ id, ...patch }) => ({
+        url: `photo/${id}`,
+        method: 'PATCH',
+        body: patch,
+      }),
+
+      async onQueryStarted(photo, { dispatch }) {
+        dispatch(
+          photoApi.util.updateQueryData('getPhotos', undefined, (draft) =>
+            draft.map((item) => (item.id === photo.id ? photo : item)),
+          ),
+        )
+      },
     }),
   }),
 })
 
-export const { useGetPhotosQuery } = photoApi
+export const { useGetPhotosQuery, useFavoritePhotoMutation, useDeletePhotoMutation } = photoApi

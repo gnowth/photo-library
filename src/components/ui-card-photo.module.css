@@ -1,0 +1,25 @@
+.uiCardPhoto {
+  width: 100%;
+}
+
+.detail {
+  display: flex;
+  justify-content: space-between;
+}
+
+.image {
+  border-radius: var(--border-radius);
+  width: 100%;
+  aspect-ratio: 4 / 3;
+}
+
+.image.active {
+  outline: 2px solid blue;
+  outline-offset: 2px;
+}
+
+.text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

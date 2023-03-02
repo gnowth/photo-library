@@ -1,0 +1,18 @@
+.body {
+  align-items: stretch;
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  margin: auto;
+  max-width: var(--length-max);
+  min-height: 100%;
+}
+
+.main {
+  border-right: 1px solid var(--color-gray-700);
+  padding: var(--space-4);
+}
+
+.aside {
+  align-items: stretch;
+  display: flex;
+}

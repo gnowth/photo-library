@@ -4,6 +4,7 @@ import type { FunctionComponent, ReactNode } from 'react'
 import { Provider } from 'react-redux'
 
 import { store } from '../store'
+import '../styles.css'
 
 type Props = {
   children: ReactNode

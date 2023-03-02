@@ -1,7 +1,7 @@
 import type { ConfigureStoreOptions } from '@reduxjs/toolkit'
 import { configureStore } from '@reduxjs/toolkit'
 
-import { photoSelectedSlice } from './components/view-photo-gallery.state'
+import { photoSelectedSlice, tabSelectedSlice } from './components/view-photo-gallery.state'
 import { photoApi } from './services/service-photo'
 
 export const createStore = (options?: Pick<Partial<ConfigureStoreOptions>, 'preloadedState'>) => {
@@ -10,6 +10,7 @@ export const createStore = (options?: Pick<Partial<ConfigureStoreOptions>, 'prel
     preloadedState: options?.preloadedState ?? {},
     reducer: {
       photoSelected: photoSelectedSlice.reducer,
+      tabSelected: tabSelectedSlice.reducer,
       [photoApi.reducerPath]: photoApi.reducer,
     },
   })

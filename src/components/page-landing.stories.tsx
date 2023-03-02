@@ -1,9 +1,17 @@
 import { expect } from '@storybook/jest'
 import { within } from '@storybook/testing-library'
+import { Provider } from 'react-redux'
+import { createStore } from '../store'
 
 import PageLanding from './page-landing'
 
-const Template = (args) => <PageLanding {...args} />
+const store = createStore()
+
+const Template = (args) => (
+  <Provider store={store}>
+    <PageLanding {...args} />
+  </Provider>
+)
 
 export const Unauthenticated = Template.bind({})
 Unauthenticated.play = async ({ canvasElement }) => {
