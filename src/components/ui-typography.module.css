@@ -1,0 +1,33 @@
+.bodyEmphasis {
+  font-weight: var(--font-weight-bold);
+  font-size: 14px;
+}
+
+.button {
+  font-weight: var(--font-weight-bold);
+}
+
+.heading2 {
+  font-size: 16px;
+}
+
+.body {
+  color: var(--color-gray-900);
+  font-size: 14px;
+}
+
+.caption {
+  color: var(--color-gray-900);
+  font-size: 15px;
+}
+
+.tab {
+  color: var(--color-gray-900);
+  font-weight: var(--font-weight-semi);
+}
+
+.label {
+  color: var(--color-gray-900);
+  font-size: 14px;
+  font-weight: var(--font-weight-bold);
+}

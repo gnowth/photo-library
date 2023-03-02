@@ -1,0 +1,35 @@
+:root {
+  --color-primary: #3d28dc;
+  --color-gray: #f4f8f9;
+  --color-gray-700: #dae0e9;
+  --color-gray-900: #5d6585;
+  --color-black: #333;
+  --color-white: #fff;
+  --border-radius: 5px;
+  --font-weight-semi: 500;
+  --font-weight-bold: 600;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 16px;
+  --space-4: 32px;
+  --space-5: 64px;
+  --length-max: 1280px;
+}
+
+/* clear margin by default */
+body,
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+body {
+  background-color: var(--color-gray);
+  color: var(--color-black);
+  font-family: sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
